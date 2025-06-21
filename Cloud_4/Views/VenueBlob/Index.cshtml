@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Cloud_4.Models.VenueBlob>
+
+@{
+    ViewData["Title"] = "Venue List";
+}
+
+<h2>event List</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Venue name" required />
+    <input type="text" name="description" placeholder="description" required />
+    <input type="file" name="imageFile" required />
+    <button type="submit">Add venue</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>description</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var venue in Model)
+        {
+            <tr>
+                <td>@venue.VenueName</td>
+                <td>@venue.Description</td>
+                <td>@venue.ImageUrl</td>
+                <td>
+                    <img src="@venue.ImageUrl" alt="@venue.VenueName" width="100" />
+                </td>
+                <td>
+                    <form asp-action="Delete" method="post" asp-route-id="@venue.Id">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+

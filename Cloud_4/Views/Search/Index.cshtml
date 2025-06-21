@@ -1,0 +1,66 @@
+﻿@using Cloud_4.Models.ViewModel
+@model SearchViewModel
+
+<h2>Search</h2>
+
+<form asp-action="Index" method="get">
+    <input type="text" name="query" value="@Model.Query" placeholder="Search..." />
+    <button type="submit">Search</button>
+</form>
+
+@if (!string.IsNullOrWhiteSpace(Model.Query))
+{
+    <h3>Search Results for "@Model.Query"</h3>
+
+    @if (Model.Venues.Any())
+    {
+        <h4>Venues</h4>
+        <ul>
+            @foreach (var venue in Model.Venues)
+            {
+                <li>
+                    <strong>@venue.VenueName</strong><br />
+                    Location: @venue.Location<br />
+                    Capacity: @venue.Capacity
+                </li>
+            }
+        </ul>
+    }
+
+    @if (Model.Bookings.Any())
+    {
+        <h4>Bookings</h4>
+        <ul>
+            @foreach (var booking in Model.Bookings)
+            {
+                <li>
+                    <strong>@booking.BookingName</strong><br />
+                    Date: @booking.BookingDate<br />
+                    Time: @booking.BookingTime
+                </li>
+            }
+        </ul>
+    }
+
+    @if (Model.Events.Any())
+    {
+        <h4>Events</h4>
+        <ul>
+            @foreach (var evt in Model.Events)
+            {
+                <li>
+                    <strong>@evt.EventName</strong><br />
+                    Date: @evt.EventDate<br />
+                    Time: @evt.EventTime<br />
+                    Description: @evt.Description
+                </li>
+            }
+        </ul>
+    }
+
+    @if (!Model.Venues.Any() && !Model.Bookings.Any() && !Model.Events.Any())
+    {
+        <p>No results found.</p>
+    }
+}
+

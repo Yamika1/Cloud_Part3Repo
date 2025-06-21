@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center mt-5">
+    <h2 class="mb-4">Explore EventBASES</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Events" asp-action="Index" class="btn btn-warning w-100 py-3">Events</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Venues" asp-action="Index" class="btn btn-danger w-100 py-3">Venues</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Bookings" asp-action="Index" class="btn btn-primary w-100 py-3">Bookings</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="Search" asp-action="Index" class="btn btn-success w-100 py-3">Search</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="eventtypes" asp-action="Index" class="btn btn-primary w-100 py-3">eventtypes</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="eventblob" asp-action="Index" class="btn btn-light w-100 py-3">eventblob</a>
+
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-controller="venueblob" asp-action="Index" class="btn btn-dark w-100 py-3">venueblob</a>
+        </div>
+    </div>
+</div>
